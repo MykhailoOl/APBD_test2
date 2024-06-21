@@ -66,7 +66,7 @@ public class CharacterController : ControllerBase
         List<ReturnItemDTO> list = new List<ReturnItemDTO>();
         foreach (var item in addItemDto)
         {
-            //list.Add(new ReturnItemDTO {item.Amount,item.ItemId,characterId});
+            list.Add(new ReturnItemDTO {Amount = item.Amount,ItemId = item.ItemId,CharacterId = characterId});
         }
         return Created("api/characters", list);
     }
