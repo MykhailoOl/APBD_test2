@@ -62,9 +62,12 @@ public class CharacterController : ControllerBase
             await _dbService.AddItems(addItemDto,characterId);
             scope.Complete();
         }
-        return Created("api/characters", new List<ReturnItemDTO>()
+
+        List<ReturnItemDTO> list = new List<ReturnItemDTO>();
+        foreach (var item in addItemDto)
         {
-          //time:)
-        });
+            //list.Add(new ReturnItemDTO {item.Amount,item.ItemId,characterId});
+        }
+        return Created("api/characters", list);
     }
 }
